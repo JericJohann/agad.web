@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classmate Edit</title>
+    <style>
+        body {
+            background-image: url('https://wallpapers.com/images/hd/funny-anime-background-mh6thrym5tysk4a9.jpg'); /* Replace 'your-background-image.jpg' with the path to your image */
+            background-size: cover;
+            text-align: center;
+            background-attachment: fixed; /* Ensures the background image doesn't scroll with content */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Center content vertically on the viewport */
+        }
+
+        .form-container {
+            background-color: rgba(255, 255, 255, 0.7); /* Add a semi-transparent white background for better readability */
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .form-container h1 {
+            text-align: center;
+        }
+
+        .form-container form {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Classmate Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+</body>
+</html>

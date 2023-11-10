@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classmates</title>
+    <style>
+        body {
+            text-align: center; /* Center-align the content */
+            background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5d2f751b-0791-4cb6-a646-8cfecd441a73/dfyc37f-a96f6f52-080e-41b1-ad88-7225dd18e29c.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzVkMmY3NTFiLTA3OTEtNGNiNi1hNjQ2LThjZmVjZDQ0MWE3M1wvZGZ5YzM3Zi1hOTZmNmY1Mi0wODBlLTQxYjEtYWQ4OC03MjI1ZGQxOGUyOWMucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.EVVxPNJsQa5Z3zNn5McMU3_8eo5og0EuffzDdltJu_U'); /* Specify the path to your background image */
+            background-size: cover; /* Scale the image to cover the entire background */
+            background-position: center; /* Center the image horizontally and vertically */
+            color: white; /* Set text color to white for better readability on the image */
+        }
+        h1 {
+            font-family: 'Your-Font-Name', sans-serif; /* Replace 'Your-Font-Name' with the desired font name */
+        }
+        .new-link {
+            border: 1px solid black; /* Add a border to the link */
+            display: inline-block; /* Make the link a block element to apply the border */
+            padding: 5px; /* Add padding for spacing around the border */
+        }
+    </style>
+</head>
+<body>
+    <h1>Classmates</h1>
+
+    <table style="margin: auto;" border="1">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Gender</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for classmate in object_list %}
+                <tr>
+                    <td>{{ classmate.firstname }}</td>
+                    <td>{{ classmate.lastname }}</td>
+                    <td>{{ classmate.age }}</td>
+                    <td>{{ classmate.address }}</td>
+                    <td>{{ classmate.gender }}</td>
+                    <td><a href="{% url 'classmate_view' classmate.id %}">View</a></td>
+                    <td><a href="{% url 'classmate_edit' classmate.id %}">Edit</a></td>
+                    <td><a href="{% url 'classmate_delete' classmate.id %}">Delete</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="new-link" href="{% url 'classmate_new' %}">New</a>
+</body>
+</html>
+
